@@ -6,14 +6,8 @@ private:
         while(s <= e){
             mid=s+(e-s)/2;
             if(nums[mid] == target){
-                if(mid == s || nums[mid] != nums[mid-1]){
-                    ans=mid;
-                    break;
-                }
-                else{
-                    ans=mid-1;
-                    e=mid-1;
-                }
+                ans=mid;
+                e=mid-1;
             }
             else if(nums[mid] < target) s=mid+1;
             else
@@ -28,14 +22,8 @@ private:
         while(s <= e){
             mid=s+(e-s)/2;
             if(nums[mid] == target){
-                if(mid == e || nums[mid] != nums[mid+1]){
-                    ans=mid;
-                    break;
-                }
-                else{
-                    ans=mid+1;
-                    s=mid+1;
-                }
+                ans=mid;
+                s=mid+1;
             }
             else if(nums[mid] < target) s=mid+1;
             else
