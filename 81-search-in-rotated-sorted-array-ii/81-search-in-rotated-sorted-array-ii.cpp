@@ -20,8 +20,7 @@ public:
                 else
                     s = mid + 1;
             }
-            else
-            {
+            else{
                 if((nums[mid] < target) && (nums[e]>= target))
                     s = mid + 1;
                 else
