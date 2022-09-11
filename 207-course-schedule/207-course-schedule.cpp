@@ -20,15 +20,11 @@ public:
         
         int count = 0; 
         while(!q.empty()){
-            int size = q.size();
-            
-            for(int i=0; i<size; i++){
-                int curr = q.front(); q.pop();
-                count++;
-                for(auto child : graph[curr]){
-                    indegree[child]--;  
-                    if(indegree[child]==0) q.push(child);
-                }
+            int curr = q.front(); q.pop();
+            count++;
+            for(auto child : graph[curr]){
+                indegree[child]--;  
+                if(indegree[child]==0) q.push(child);
             }   
         }
         if(count==n) return true;
