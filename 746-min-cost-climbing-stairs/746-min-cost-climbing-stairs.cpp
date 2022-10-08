@@ -5,9 +5,10 @@ public:
         if(ind == 1 || ind == 0) return nums[ind];
         if(dp[ind] != -1) return dp[ind];
         
-        int cost = nums[ind] + min(solve(ind-1,nums,dp), solve(ind-2,nums,dp));
+        int one = solve(ind-1,nums,dp);
+        int two = solve(ind-2,nums,dp);
         
-        return dp[ind] = cost;
+        return dp[ind] = nums[ind] + min(one,two);
     }
     int minCostClimbingStairs(vector<int>& cost) {
         int n = cost.size();
