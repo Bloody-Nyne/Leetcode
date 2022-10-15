@@ -12,7 +12,17 @@ public:
         return dp[ind] = mini;
     }
     int numSquares(int n) {
-        vector<int> dp(n+1,-1);
-        return solve(n,dp);
+        vector<int> dp(n+1,0);
+        dp[0] = 0;
+        
+        for(int num=1;num<=n;num++){
+            int mini = 1e9;
+            for(int i=1;i*i<=num;i++){
+                int minValue = 1 + dp[num-i*i];
+                mini = min(mini,minValue);
+            }
+            dp[num] = mini;
+        }
+        return dp[n];
     }
 };
