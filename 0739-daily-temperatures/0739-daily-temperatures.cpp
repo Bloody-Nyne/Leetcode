@@ -3,7 +3,7 @@ public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
         int n = temperatures.size();
         stack<pair<int,int>> stk;
-        vector<int> ans(n);
+        vector<int> ans(n,0);
         for(int i=0;i<n;i++){
             int curDay = i;
             int curTemp = temperatures[i];
