@@ -7,8 +7,20 @@ using namespace std;
 class Solution {
   public:
     int minimizeCost(vector<int>& height, int n, int k) {
-        vector<int> dp(n,-1);
-        return solve(n-1,k,height,dp);
+        vector<int> dp(n,0);
+      //  return solve(n-1,k,height,dp);
+        dp[0] = 0;
+        for(int ind=1;ind<n;ind++){
+            int jump = 1e9;
+            for(int i=1;i<=k;i++){
+                if(ind-i >= 0){
+                    int profit = abs(height[ind] - height[ind-i]) + dp[ind-i];
+                    jump = min(jump,profit);   
+                }
+            }
+            dp[ind] = jump;
+        }
+        return dp[n-1];
     }
 private:
     int solve(int ind,int k,vector<int>& height,vector<int>& dp){
