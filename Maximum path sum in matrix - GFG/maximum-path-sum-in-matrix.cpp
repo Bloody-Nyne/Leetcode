@@ -11,11 +11,27 @@ class Solution{
 public:
     int maximumPath(int n, vector<vector<int>> grid)
     {
+     /*    
       int ans = -1e9;
       vector<vector<int>> dp(n,vector<int>(n,-1));
       for(int j=0;j<n;j++){
           int temp = memo(n-1,j,grid,dp);
           ans = max(ans,temp);
+      }
+      return ans; */
+      vector<vector<int>> dp(n,vector<int>(n,0));
+      for(int j=0;j<n;j++) dp[0][j] = grid[0][j];
+      for(int row=1;row<n;row++){
+          for(int col=0;col<n;col++){
+              int down = grid[row][col] + dp[row-1][col];
+              int diagL = col > 0 ? grid[row][col] + dp[row-1][col-1] : -1e9;
+              int diagR = col < n-1 ? grid[row][col] + dp[row-1][col+1] : -1e9;
+              dp[row][col] = max(down,max(diagL,diagR));
+          }
+      }
+      int ans = -1e9;
+      for(int j=0;j<n;j++){
+          ans = max(ans,dp[n-1][j]);
       }
       return ans;
     }
