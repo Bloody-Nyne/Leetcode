@@ -9,10 +9,23 @@ using namespace std;
 
 class Solution{   
 public:
-    bool isSubsetSum(vector<int>arr, int sum){
-        int n = arr.size();
-        vector<vector<int>> dp(n,vector<int>(sum+1,-1));
-        return slave(n-1,sum,arr,dp); 
+    bool isSubsetSum(vector<int>nums, int sum){
+        int n = nums.size();
+        vector<vector<int>> dp(n,vector<int>(sum+1,0));
+        ///return slave(n-1,sum,nums,dp); 
+        for(int i=0;i<n;i++) dp[i][0] = 1;
+        for(int j=0;j<=sum;j++) dp[0][j] = nums[0] == j;
+        for(int ind=1;ind<n;ind++){
+            for(int target=1;target<=sum;target++){
+                int notTaken = dp[ind-1][target];
+                int taken = false;
+                if(nums[ind] <= target)
+                    taken = dp[ind-1][target-nums[ind]];
+                
+                dp[ind][target] = taken || notTaken;
+            }
+        }
+        return dp[n-1][sum];
     }
 private:
     bool slave(int ind,int target,vector<int>& nums,vector<vector<int>>& dp){
