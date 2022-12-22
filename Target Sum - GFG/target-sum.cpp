@@ -10,14 +10,30 @@ using namespace std;
 
 class Solution {
   public:
-    int findTargetSumWays(vector<int>&A ,int target) {
-        int n = A.size();
+    int findTargetSumWays(vector<int>&nums ,int x) {
+        int n = nums.size();
         int totSum = 0;
-        for(auto it: A) totSum += it;
-        if(totSum < target || (totSum-target)%2) return 0;
-        int sum = (totSum - target)/2;
-        vector<vector<int>> dp(n,vector<int>(sum+1,-1));
-        return slave(n-1,sum,A,dp);
+        for(auto it: nums) totSum += it;
+        if(totSum < x || (totSum-x)%2) return 0;
+        int sum = (totSum - x)/2;
+        vector<vector<int>> dp(n,vector<int>(sum+1,0));
+       // return slave(n-1,sum,A,dp);
+       for(int target=0;target<=sum;target++){
+            if(target==0 && nums[0]==0) dp[0][target] = 2;
+            else if(target==0 || target == nums[0]) dp[0][target] = 1;
+            else dp[0][target] = 0;
+       }
+       for(int ind=1;ind<n;ind++){
+           for(int target=0;target<=sum;target++){
+                int notTaken = dp[ind-1][target];
+                int taken = 0;
+                if(nums[ind] <= target)
+                    taken = dp[ind-1][target-nums[ind]];
+                    
+                dp[ind][target] = taken + notTaken;
+           }
+       }
+       return dp[n-1][sum];
     }
 private:
     int slave(int ind,int target,vector<int>& nums,vector<vector<int>>& dp){
