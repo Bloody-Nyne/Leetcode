@@ -13,8 +13,20 @@ class Solution{
         string t = s;
         reverse(t.begin(),t.end());
         int n = s.length();
-        vector<vector<int>> dp(n+1,vector<int>(n+1,-1));
-        int len =  slave(n-1,n-1,s,t,dp);
+        vector<vector<int>> dp(n+1,vector<int>(n+1,0));
+        //int len =  slave(n-1,n-1,s,t,dp);
+        for(int i=0;i<n;i++) {
+            dp[i][0] = 0;
+            dp[0][i] = 0;
+        }
+        for(int ind1=1;ind1<=n;ind1++){
+            for(int ind2=1;ind2<=n;ind2++){
+                if(s[ind1-1] == t[ind2-1])
+                    dp[ind1][ind2] = 1 + dp[ind1-1][ind2-1];
+                else dp[ind1][ind2] = max(dp[ind1-1][ind2], dp[ind1][ind2-1]);
+            }
+        }
+        int len = dp[n][n];
         return n - len;
     }
 private:
