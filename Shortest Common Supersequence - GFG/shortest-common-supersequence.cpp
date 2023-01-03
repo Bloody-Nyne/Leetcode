@@ -13,10 +13,19 @@ class Solution
 {
     public:
     //Function to find length of shortest common supersequence of two strings.
-    int shortestCommonSupersequence(string X, string Y, int m, int n)
+    int shortestCommonSupersequence(string s, string t, int m, int n)
     {
-        vector<vector<int>> dp(m+1,vector<int>(n+1,-1));
-        int len = slave(m-1,n-1,X,Y,dp);
+        vector<vector<int>> dp(m+1,vector<int>(n+1,0));
+        //int len = slave(m-1,n-1,X,Y,dp);
+        for(int i=0;i<m;i++) dp[i][0] = 0;
+        for(int j=0;j<n;j++) dp[0][j] = 0;
+        for(int ind1=1;ind1<=m;ind1++){
+            for(int ind2=1;ind2<=n;ind2++){
+                if(s[ind1-1] == t[ind2-1]) dp[ind1][ind2] = 1 + dp[ind1-1][ind2-1];
+                else dp[ind1][ind2] = max(dp[ind1-1][ind2], dp[ind1][ind2-1]);
+            }
+        }
+        int len = dp[m][n];
         return m+n-len;
     }
     private:
