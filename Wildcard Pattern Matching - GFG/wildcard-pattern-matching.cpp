@@ -9,17 +9,35 @@ class Solution{
     int wildCard(string pattern,string str){
         int n = pattern.length();
         int m = str.length();
-        vector<vector<int>> dp(n+1,vector<int>(m+1,-1));
-        return slave(n-1,m-1,pattern,str,dp);
+        vector<vector<int>> dp(n+1,vector<int>(m+1,0));
+        //return slave(n-1,m-1,pattern,str,dp);
+        dp[0][0] = 1;
+        for(int j=1;j<=m;j++) dp[0][j] = 0;
+        for(int i=1;i<=n;i++) {
+            dp[i][0] = allstar(pattern,i);
+        }
+        
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=m;j++){
+                if(pattern[i-1] == str[j-1] || pattern[i-1] == '?') 
+                    dp[i][j] = dp[i-1][j-1];
+                else if(pattern[i-1] == '*') 
+                    dp[i][j] = dp[i-1][j] || dp[i][j-1];
+                else 
+                    dp[i][j] = false;
+            }
+        }
+        
+        return dp[n][m];
     }
   private:
     int slave(int i,int j,string pattern,string str,vector<vector<int>>& dp){
         if (i < 0 && j < 0)
-            return true;
+            return true; // both string get finished.
         if (i < 0 && j >= 0)
-            return false;
+            return false; //pattern string got finished first
         if (j < 0 && i >= 0)
-            return allstar(pattern, i);
+            return allstar(pattern, i);//str string finished first so check if pattern has all stars or not.
             
         if(dp[i][j] != -1) return dp[i][j];
         
@@ -29,8 +47,8 @@ class Solution{
         
     }
     bool allstar(string str,int n){
-        for(int i=0;i<=n;i++){
-            if(str[i] != '*') return false;
+        for(int i=1;i<=n;i++){
+            if(str[i-1] != '*') return false;
         }
         return true;
     }
