@@ -6,8 +6,25 @@ using namespace std;
 class Solution{
     public:
     long long maximumProfit(vector<long long>&prices, int n, int fee) {
-        vector<vector<int>> dp(n,vector<int>(2,-1));
-        return slave(0,true,fee,prices,dp);
+        vector<vector<int>> dp(n+1,vector<int>(2,0));
+        //return slave(0,true,fee,prices,dp);
+        dp[n][0] = dp[n][1] = 0;
+        for(int ind=n-1;ind>=0;ind--){
+            for(int buy=0;buy<2;buy++){
+               long long notTake = -1e9;
+               long long take = -1e9;
+               if(buy){
+                   notTake = 0 +dp[ind+1][true];//not buy stock
+                   take = -prices[ind] + dp[ind+1][false]; // buy the stock
+               }
+               else{
+                   notTake = 0 + dp[ind+1][false];//not sell the stock
+                   take = prices[ind] - fee + dp[ind+1][true];//sell the stock
+               }
+               dp[ind][buy] = max(take,notTake);
+            }
+        }
+        return dp[0][1];
     }
     private:
     long long slave(int ind,bool buy,int fee,vector<long long>& prices,vector<vector<int>>& dp){
