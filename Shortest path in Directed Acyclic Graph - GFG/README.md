@@ -1,6 +1,6 @@
 # Shortest path in Directed Acyclic Graph
 ## Medium
-<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a Directed Acyclic Graph of N vertices from 0 to N-1 and a 2D Integer array(or vector) edges[ ][ ] of length M, where there is a directed edge from edge[i][0] to edge[i][1] with a distance of edge[i][2] for all i, 0&lt;=i&lt;M.</span></p>
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a Directed Acyclic Graph of N vertices from 0 to N-1 and a 2D Integer array(or vector) edges[ ][ ] of length M, where there is a directed edge from edge[i][0] to edge[i][1] with a distance of edge[i][2] for all i, 0&lt;=i</span></p>
 
 <p><span style="font-size:18px">Find the <strong>shortest</strong> path from <strong>src(0) </strong>vertex&nbsp;to all the vertices&nbsp;and if it is impossible to reach any vertex, then return&nbsp;<strong>-1</strong> for that vertex.</span></p>
 
@@ -10,7 +10,7 @@
 
 <pre><span style="font-size:18px"><strong>Input:</strong>
 n = 6, m= 7
-edge=[[0,1,2],[0,4,1],[4,5,4
+edge=[[0,1,2],[0,4,1],[4,5,4]
 ,[4,2,2],[1,2,3],[2,3,6],[5,3,1]]
 
 <strong>Output:</strong>
