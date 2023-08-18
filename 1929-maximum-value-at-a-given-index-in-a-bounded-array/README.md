@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array">Maximum Value at a Given Index in a Bounded Array</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>You are given three positive integers:&nbsp;<code>n</code>, <code>index</code>, and <code>maxSum</code>. You want to construct an array <code>nums</code> (<strong>0-indexed</strong>)<strong> </strong>that satisfies the following conditions:</p>
+<h2><a href="https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array">1929. Maximum Value at a Given Index in a Bounded Array</a></h2><h3>Medium</h3><hr><p>You are given three positive integers:&nbsp;<code>n</code>, <code>index</code>, and <code>maxSum</code>. You want to construct an array <code>nums</code> (<strong>0-indexed</strong>)<strong> </strong>that satisfies the following conditions:</p>
 
 <ul>
 	<li><code>nums.length == n</code></li>
