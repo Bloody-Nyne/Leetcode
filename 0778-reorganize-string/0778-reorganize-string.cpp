@@ -9,6 +9,7 @@ public:
         priority_queue<pair<int,int>> pq;
         for(int i=0;i<26;i++){
             if(count[i] > 0){
+                if(count[i] > (n+1)/2) return "";
                 pq.push({count[i],i+'a'});
             }
         }
