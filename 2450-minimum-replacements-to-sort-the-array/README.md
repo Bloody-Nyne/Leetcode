@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/minimum-replacements-to-sort-the-array">Minimum Replacements to Sort the Array</a></h2> <img src='https://img.shields.io/badge/Difficulty-Hard-red' alt='Difficulty: Hard' /><hr><p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. In one operation you can replace any element of the array with <strong>any two</strong> elements that <strong>sum</strong> to it.</p>
+<h2><a href="https://leetcode.com/problems/minimum-replacements-to-sort-the-array">2450. Minimum Replacements to Sort the Array</a></h2><h3>Hard</h3><hr><p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. In one operation you can replace any element of the array with <strong>any two</strong> elements that <strong>sum</strong> to it.</p>
 
 <ul>
 	<li>For example, consider <code>nums = [5,6,7]</code>. In one operation, we can replace <code>nums[1]</code> with <code>2</code> and <code>4</code> and convert <code>nums</code> to <code>[5,2,4,7]</code>.</li>
