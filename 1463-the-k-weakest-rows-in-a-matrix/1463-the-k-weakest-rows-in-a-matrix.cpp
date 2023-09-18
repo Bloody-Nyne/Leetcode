@@ -21,8 +21,8 @@ public:
         while(k--){
             auto it = pq.top();
             pq.pop();
-            int count = it.second;
-            ans.push_back(count);
+            int index = it.second;
+            ans.push_back(index);
         }
         return ans;
     }
