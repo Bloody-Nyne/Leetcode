@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/happy-students/">3104. Happy Students</a></h2><h3>Medium</h3><hr><p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code> where <code>n</code> is the total number of students in the class. The class teacher tries to select a group of students so that all the students remain happy.</p>
+<h2><a href="https://leetcode.com/problems/happy-students">Happy Students</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code> where <code>n</code> is the total number of students in the class. The class teacher tries to select a group of students so that all the students remain happy.</p>
 
 <p>The <code>i<sup>th</sup></code> student will become happy if one of these two conditions is met:</p>
 
