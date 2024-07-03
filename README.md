@@ -53,3 +53,18 @@ Collection of LeetCode questions to ace the coding interview!
 |  |
 | ------- |
 | [0523-continuous-subarray-sum](https://github.com/Fenrir-04/Leetcode-and-GFG/tree/master/0523-continuous-subarray-sum) |
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Array
+|  |
+| ------- |
+| [1616-minimum-difference-between-largest-and-smallest-value-in-three-moves](https://github.com/Fenrir-04/Leetcode-and-GFG/tree/master/1616-minimum-difference-between-largest-and-smallest-value-in-three-moves) |
+## Greedy
+|  |
+| ------- |
+| [1616-minimum-difference-between-largest-and-smallest-value-in-three-moves](https://github.com/Fenrir-04/Leetcode-and-GFG/tree/master/1616-minimum-difference-between-largest-and-smallest-value-in-three-moves) |
+## Sorting
+|  |
+| ------- |
+| [1616-minimum-difference-between-largest-and-smallest-value-in-three-moves](https://github.com/Fenrir-04/Leetcode-and-GFG/tree/master/1616-minimum-difference-between-largest-and-smallest-value-in-three-moves) |
+<!---LeetCode Topics End-->
